@@ -24,5 +24,6 @@ export interface Founder {
   title: string;
   location: string;
   bio: string;
+  avatar?: string;
   links: FounderLink[];
 }
