@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   title: "keyandboard — we build things",
   description:
     "A two-person studio building products people actually use. HeyHoney, FlyingPapers, PromptArena, and more.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   openGraph: {
     title: "keyandboard — we build things",
     description:

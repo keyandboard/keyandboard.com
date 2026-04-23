@@ -1,170 +1,156 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Project, Founder } from "@/types";
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
   founders: Founder[];
 }
 
-const cardClass =
-  "card-mobile-shine project-card group relative z-20 block overflow-hidden border border-white/10 bg-white/[0.02] p-8 backdrop-blur-3xl transition duration-500 hover:border-white/22 hover:bg-white/[0.04] sm:p-10";
+const STATUS_COLOR: Record<string, string> = {
+  Live:            "#4ade80",
+  Beta:            "#facc15",
+  "In development":"#60a5fa",
+  Operational:     "#a78bfa",
+  Research:        "#94a3b8",
+};
 
-export function ProjectCard({ project, index, founders }: ProjectCardProps) {
-  const indexLabel = String(index + 1).padStart(2, "0");
+export function ProjectCard({ project, founders }: ProjectCardProps) {
   const cardRef = useRef<HTMLElement | null>(null);
   const rafRef = useRef<number | null>(null);
-  const currentRef = useRef({ x: 78, y: 18 });
-  const targetRef = useRef({ x: 78, y: 18 });
+  const cur = useRef({ x: 60, y: 40 });
+  const tgt = useRef({ x: 60, y: 40 });
 
   useEffect(() => {
     const node = cardRef.current;
     if (!node) return;
-
     const animate = () => {
-      const current = currentRef.current;
-      const target = targetRef.current;
-      current.x += (target.x - current.x) * 0.08;
-      current.y += (target.y - current.y) * 0.08;
-      node.style.setProperty("--mx", `${current.x.toFixed(2)}%`);
-      node.style.setProperty("--my", `${current.y.toFixed(2)}%`);
-      if (Math.abs(target.x - current.x) > 0.05 || Math.abs(target.y - current.y) > 0.05) {
+      cur.current.x += (tgt.current.x - cur.current.x) * 0.08;
+      cur.current.y += (tgt.current.y - cur.current.y) * 0.08;
+      node.style.setProperty("--mx", `${cur.current.x.toFixed(2)}%`);
+      node.style.setProperty("--my", `${cur.current.y.toFixed(2)}%`);
+      if (Math.abs(tgt.current.x - cur.current.x) > 0.05 || Math.abs(tgt.current.y - cur.current.y) > 0.05) {
         rafRef.current = requestAnimationFrame(animate);
       } else {
         rafRef.current = null;
       }
     };
-
-    const queueAnimation = () => {
-      if (rafRef.current === null) {
-        rafRef.current = requestAnimationFrame(animate);
-      }
+    const queue = () => { if (!rafRef.current) rafRef.current = requestAnimationFrame(animate); };
+    const onMove = (e: MouseEvent) => {
+      const r = node.getBoundingClientRect();
+      tgt.current = { x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 };
+      queue();
     };
-
-    const handleMove = (event: MouseEvent) => {
-      const rect = node.getBoundingClientRect();
-      targetRef.current.x = ((event.clientX - rect.left) / rect.width) * 100;
-      targetRef.current.y = ((event.clientY - rect.top) / rect.height) * 100;
-      queueAnimation();
-    };
-
-    const handleLeave = () => {
-      targetRef.current = { x: 78, y: 18 };
-      queueAnimation();
-    };
-
-    node.addEventListener("mousemove", handleMove);
-    node.addEventListener("mouseleave", handleLeave);
-
+    const onLeave = () => { tgt.current = { x: 60, y: 40 }; queue(); };
+    node.addEventListener("mousemove", onMove);
+    node.addEventListener("mouseleave", onLeave);
     return () => {
-      node.removeEventListener("mousemove", handleMove);
-      node.removeEventListener("mouseleave", handleLeave);
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      node.removeEventListener("mousemove", onMove);
+      node.removeEventListener("mouseleave", onLeave);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
-  const cardStyle = {
-    "--mx": "78%",
-    "--my": "18%",
-    boxShadow: "4px 4px 0 rgba(255,255,255,0.04)",
-  } as React.CSSProperties;
-
-  // The founders who built this project
+  const statusColor = STATUS_COLOR[project.status] ?? "#94a3b8";
   const projectFounders = founders.filter((f) => project.founders.includes(f.id));
+
+  const cardStyle = { "--mx": "60%", "--my": "40%" } as React.CSSProperties;
 
   const inner = (
     <>
-      {/* Background glow layers */}
+      {/* Glow layer */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-white/[0.02] transition duration-500 group-hover:bg-white/[0.04]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(130% 130% at var(--mx) var(--my), ${project.accent}12 0%, ${project.accent}06 30%, transparent 70%)`,
+          background: `radial-gradient(120% 120% at var(--mx) var(--my), ${project.accent}18 0%, transparent 65%)`,
         }}
         aria-hidden
       />
+
+      {/* Thumbnail */}
       <div
-        className="pointer-events-none absolute z-0 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 opacity-0 blur-[96px] transition duration-500 group-hover:opacity-30"
-        style={{ left: "var(--mx)", top: "var(--my)", background: project.accent }}
-        aria-hidden
-      />
-
-      {/* Top row: index + status + year + arrow */}
-      <div className="relative z-10 flex items-center justify-between gap-6">
-        <div className="flex items-center gap-4">
-          <span className="pixel-label text-[8px] text-white/30">{indexLabel}</span>
-          <span
-            className="inline-flex h-2 w-2"
-            style={{ background: project.accent, boxShadow: `0 0 8px ${project.accent}` }}
-            aria-hidden
+        className="relative w-full overflow-hidden border-b border-white/[0.07]"
+        style={{ height: 180 }}
+      >
+        {project.thumb ? (
+          <Image
+            src={project.thumb}
+            alt={project.name}
+            fill
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <span className="pixel-label text-[7px] text-white/40">
-            {project.status} · {project.year}
-          </span>
-        </div>
-        {project.url && (
-          <ArrowUpRight className="h-5 w-5 text-white/40 transition duration-400 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" />
-        )}
-      </div>
-
-      {/* Project name + tagline */}
-      <div className="relative z-10 mt-8">
-        <h3 className="text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl">
-          {project.name}
-        </h3>
-        <p className="mt-3 text-base text-white/65 sm:text-lg">{project.tagline}</p>
-      </div>
-
-      {/* Description */}
-      <p className="relative z-10 mt-6 max-w-3xl text-sm leading-relaxed text-white/55">
-        {project.description}
-      </p>
-
-      {/* Highlights */}
-      <ul className="relative z-10 mt-6 grid gap-2 sm:grid-cols-3">
-        {project.highlights.map((h) => (
-          <li
-            key={h}
-            className="pixel-chip bg-white/[0.02] px-3 py-2 text-xs leading-snug text-white/60"
+        ) : (
+          /* Accent-colored placeholder for projects without a live URL */
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ background: `linear-gradient(135deg, ${project.accent}22 0%, ${project.accent}08 100%)` }}
           >
-            {h}
-          </li>
-        ))}
-      </ul>
-
-      {/* Stack tags + founders pips */}
-      <div className="relative z-10 mt-8 flex flex-wrap items-center gap-2">
-        {project.stack.map((tech) => (
-          <span
-            key={tech}
-            className="pixel-tag bg-white/[0.03] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white/50"
-          >
-            {tech}
-          </span>
-        ))}
-
-        {/* Founder pips — bottom right */}
-        <div className="ml-auto flex items-center gap-2">
-          {projectFounders.map((f) => (
             <span
-              key={f.id}
-              className="pixel-label text-[7px] text-white/35 border border-white/10 px-2 py-1"
-              title={f.name}
+              className="pixel-label text-[9px] opacity-30"
+              style={{ color: project.accent }}
             >
-              {f.handle}
+              {project.status.toUpperCase()}
+            </span>
+          </div>
+        )}
+        {/* Overlay fade at bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#0d0d14] to-transparent" />
+      </div>
+
+      {/* Info */}
+      <div className="relative z-10 p-6">
+        {/* Name row */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <span
+              className="mt-0.5 inline-block h-2 w-2 shrink-0"
+              style={{ background: statusColor, boxShadow: `0 0 6px ${statusColor}` }}
+              aria-hidden
+            />
+            <h3 className="text-xl font-semibold tracking-tight text-white">{project.name}</h3>
+            <span className="pixel-label text-[7px] text-white/30">{project.year}</span>
+          </div>
+          {project.url && (
+            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-white/30 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white/70" />
+          )}
+        </div>
+
+        {/* Tagline */}
+        <p className="mt-2 text-sm leading-relaxed text-white/50">{project.tagline}</p>
+
+        {/* Stack + founders */}
+        <div className="mt-4 flex flex-wrap items-center gap-1.5">
+          {project.stack.map((t) => (
+            <span
+              key={t}
+              className="pixel-tag px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide text-white/40"
+            >
+              {t}
             </span>
           ))}
+          <div className="ml-auto flex gap-1.5">
+            {projectFounders.map((f) => (
+              <span
+                key={f.id}
+                className="pixel-label text-[6px] border border-white/10 px-1.5 py-0.5 text-white/25"
+                title={f.name}
+              >
+                {f.id}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </>
   );
+
+  const cls =
+    "card-mobile-shine group relative block overflow-hidden border border-white/[0.08] bg-[#0d0d14] transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-lg";
 
   if (project.url) {
     return (
@@ -173,18 +159,17 @@ export function ProjectCard({ project, index, founders }: ProjectCardProps) {
         href={project.url}
         target="_blank"
         rel="noreferrer"
-        className={cardClass}
+        className={cls}
         style={cardStyle}
       >
         {inner}
       </Link>
     );
   }
-
   return (
     <div
       ref={cardRef as React.RefObject<HTMLDivElement>}
-      className={cardClass}
+      className={cls}
       style={cardStyle}
     >
       {inner}

@@ -4,6 +4,7 @@ export interface Project {
   tagline: string;
   description: string;
   url: string | null;
+  thumb: string | null;
   year: number;
   founders: string[];
   stack: string[];

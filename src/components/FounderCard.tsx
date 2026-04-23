@@ -8,48 +8,35 @@ interface FounderCardProps {
 
 export function FounderCard({ founder }: FounderCardProps) {
   return (
-    <div className="pixel-card bg-white/[0.02] overflow-hidden">
-      {/* Avatar */}
+    <div className="pixel-card bg-[#0d0d14] flex flex-col sm:flex-row gap-0 overflow-hidden">
+      {/* Avatar — compact square */}
       {founder.avatar && (
-        <div className="relative w-full aspect-[3/4] overflow-hidden">
+        <div className="relative shrink-0 w-full sm:w-36 h-44 sm:h-auto overflow-hidden border-b sm:border-b-0 sm:border-r border-white/[0.07]">
           <Image
             src={founder.avatar}
             alt={founder.name}
             fill
             className="object-cover object-top pixelated"
-            sizes="(max-width: 640px) 100vw, 50vw"
+            sizes="144px"
           />
-          {/* neon bottom gradient fade */}
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#09090f] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0d0d14] to-transparent sm:hidden" />
         </div>
       )}
 
       {/* Info */}
-      <div className="p-8 sm:p-10">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="pixel-label text-[8px] text-[var(--neon)]">{founder.handle}</p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              {founder.name}
-            </h3>
-          </div>
-          <span className="pixel-label text-[7px] text-white/40 sm:text-right">
-            {founder.title}
-            <br />
-            <span className="text-white/25">{founder.location}</span>
-          </span>
-        </div>
-
-        <p className="mt-5 text-sm leading-relaxed text-white/55">{founder.bio}</p>
-
-        <div className="mt-6 flex flex-wrap gap-3">
+      <div className="flex flex-col justify-center p-6 sm:p-8">
+        <p className="pixel-label text-[7px] text-[var(--neon)]">{founder.handle}</p>
+        <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">{founder.name}</h3>
+        <p className="pixel-label text-[7px] text-white/35 mt-1">{founder.title}</p>
+        <p className="mt-3 text-xs leading-relaxed text-white/45">{founder.bio}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
           {founder.links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noreferrer"
-              className="pixel-tag bg-white/[0.03] px-4 py-2 font-mono text-[10px] uppercase tracking-wider text-white/50 transition hover:border-white/30 hover:text-white/80"
+              className="pixel-tag px-3 py-1 font-mono text-[9px] uppercase tracking-wide text-white/40 transition hover:border-white/30 hover:text-white/70"
             >
               {link.label}
             </Link>
