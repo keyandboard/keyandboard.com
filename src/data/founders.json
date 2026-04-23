@@ -1,0 +1,27 @@
+[
+  {
+    "id": "baran",
+    "name": "Adem Baran Orhan",
+    "handle": "@a-baran-orhan",
+    "title": "AI & Data Engineer",
+    "location": "San Francisco (Remote)",
+    "bio": "Building at the intersection of LLMs, data pipelines, and real products. Currently at Picus Security. Co-founder of keyandboard.",
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/a-baran-orhan" },
+      { "label": "Site", "href": "https://baranorhan.dev" },
+      { "label": "Email", "href": "mailto:a.baranorhan@gmail.com" }
+    ]
+  },
+  {
+    "id": "kayra",
+    "name": "Kayra Kilinc",
+    "handle": "@kayraucklnc",
+    "title": "Full-Stack Engineer",
+    "location": "Remote",
+    "bio": "Full-stack engineer passionate about building products that solve real problems. Co-founder of keyandboard.",
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/kayraucklnc" },
+      { "label": "Site", "href": "https://kayrauckilinc.com" }
+    ]
+  }
+]
