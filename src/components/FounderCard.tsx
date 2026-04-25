@@ -11,13 +11,13 @@ export function FounderCard({ founder }: FounderCardProps) {
     <div className="pixel-card bg-[#0d0d14] flex flex-col sm:flex-row gap-0 overflow-hidden">
       {/* Avatar — compact square */}
       {founder.avatar && (
-        <div className="relative shrink-0 w-full sm:w-36 h-44 sm:h-auto overflow-hidden border-b sm:border-b-0 sm:border-r border-white/[0.07]">
+        <div className="relative shrink-0 w-full sm:w-24 h-28 sm:h-auto overflow-hidden border-b sm:border-b-0 sm:border-r border-white/[0.07]">
           <Image
             src={founder.avatar}
             alt={founder.name}
             fill
             className="object-cover object-top pixelated"
-            sizes="144px"
+            sizes="96px"
           />
           <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0d0d14] to-transparent sm:hidden" />
         </div>

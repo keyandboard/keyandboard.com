@@ -133,17 +133,6 @@ export function ProjectCard({ project, founders }: ProjectCardProps) {
               {t}
             </span>
           ))}
-          <div className="ml-auto flex gap-1.5">
-            {projectFounders.map((f) => (
-              <span
-                key={f.id}
-                className="pixel-label text-[6px] border border-white/10 px-1.5 py-0.5 text-white/25"
-                title={f.name}
-              >
-                {f.id}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </>
