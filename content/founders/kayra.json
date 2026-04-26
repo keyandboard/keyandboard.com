@@ -31,8 +31,8 @@
         "accent": "#7dd3fc",
         "spacing": "wide",
         "pixelHeavy": true,
-        "wallpaper": "/wallpapers/kayra.svg",
-        "wallpaperOpacity": 0.85
+        "wallpaper": "/wallpapers/kayra.webp",
+        "wallpaperOpacity": 0.9
       }
     },
     "links": [
