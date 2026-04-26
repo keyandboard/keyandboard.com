@@ -3,8 +3,8 @@
     "id": "baran",
     "name": "Adem Baran Orhan",
     "handle": "@a-baran-orhan",
-    "title": "AI & Data Engineer",
-    "location": "San Francisco (Remote)",
+    "title": "AI & Data Engineer · Founder",
+    "location": "San Francisco · Remote · Ankara",
     "bio": "AI & Data Engineer and Hacettepe AI graduate. I build at the intersection of LLMs, scalable data pipelines, and real products. Currently at Picus Security (a fast-growing SF startup), building AI for cybersecurity. Founder of HeyHoney, PromptArena, and FlyingPapers.",
     "coffee": "Always down to chat about AI, data, and building great products — let's grab a virtual coffee.",
     "avatar": "/avatars/baran.png",
@@ -17,7 +17,7 @@
     },
     "nameplate": {
       "exe": "BARAN.EXE",
-      "tags": ["AI ENG // LVL 04", "PICUS SECURITY"]
+      "tags": ["AI ENG // LVL 05", "PICUS SECURITY"]
     },
     "site": {
       "domain": "baranorhan.dev",
@@ -44,6 +44,10 @@
         "href": "https://baranorhan.dev"
       },
       {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/orhanbaran"
+      },
+      {
         "label": "Email",
         "href": "mailto:a.baranorhan@gmail.com"
       }
@@ -53,8 +57,8 @@
     {
       "slug": "heyhoney",
       "name": "HeyHoney",
-      "tagline": "Gamified relationship companion for couples",
-      "description": "A mobile app that turns everyday couple moments into shared adventures. Players earn points, unlock milestones, and deepen their bond through playful daily challenges synced in real-time.",
+      "tagline": "A gamified relationship companion for couples — synchronized daily rituals for iOS and Android.",
+      "description": "An interactive daily ritual for couples. Partners get synchronized prompts, reflect independently, then unlock each other's answers. Built native on iOS and Android with real-time sync, streaks, progress tracking, and dynamic status systems that turn emotional check-ins into a habit.",
       "url": "https://heyhoney.app",
       "thumb": "/thumbs/heyhoney.jpg",
       "cover": "/covers/projects/heyhoney.svg",
@@ -66,12 +70,13 @@
         "React Native",
         "iOS",
         "Android",
-        "Firebase"
+        "Firebase",
+        "Realtime Sync"
       ],
-      "status": "Live",
+      "status": "In development",
       "accent": "#ff6b6b",
       "highlights": [
-        "50k+ users",
+        "Synchronized daily questions",
         "iOS & Android",
         "Real-time sync"
       ]
