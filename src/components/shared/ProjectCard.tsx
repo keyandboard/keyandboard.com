@@ -4,22 +4,24 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { Project, Founder } from "@/types";
+import type { Project } from "@/types";
+import { pickCover } from "@/lib/cover";
 
 interface ProjectCardProps {
   project: Project;
-  founders: Founder[];
+  /** When true, render the more spacious "wide" variant inspired by baranorhan.dev. */
+  wide?: boolean;
 }
 
 const STATUS_COLOR: Record<string, string> = {
-  Live:            "#4ade80",
-  Beta:            "#facc15",
-  "In development":"#60a5fa",
-  Operational:     "#a78bfa",
-  Research:        "#94a3b8",
+  Live: "#4ade80",
+  Beta: "#facc15",
+  "In development": "#60a5fa",
+  Operational: "#a78bfa",
+  Research: "#94a3b8",
 };
 
-export function ProjectCard({ project, founders }: ProjectCardProps) {
+export function ProjectCard({ project, wide = false }: ProjectCardProps) {
   const cardRef = useRef<HTMLElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const cur = useRef({ x: 60, y: 40 });
@@ -33,19 +35,30 @@ export function ProjectCard({ project, founders }: ProjectCardProps) {
       cur.current.y += (tgt.current.y - cur.current.y) * 0.08;
       node.style.setProperty("--mx", `${cur.current.x.toFixed(2)}%`);
       node.style.setProperty("--my", `${cur.current.y.toFixed(2)}%`);
-      if (Math.abs(tgt.current.x - cur.current.x) > 0.05 || Math.abs(tgt.current.y - cur.current.y) > 0.05) {
+      if (
+        Math.abs(tgt.current.x - cur.current.x) > 0.05 ||
+        Math.abs(tgt.current.y - cur.current.y) > 0.05
+      ) {
         rafRef.current = requestAnimationFrame(animate);
       } else {
         rafRef.current = null;
       }
     };
-    const queue = () => { if (!rafRef.current) rafRef.current = requestAnimationFrame(animate); };
+    const queue = () => {
+      if (!rafRef.current) rafRef.current = requestAnimationFrame(animate);
+    };
     const onMove = (e: MouseEvent) => {
       const r = node.getBoundingClientRect();
-      tgt.current = { x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 };
+      tgt.current = {
+        x: ((e.clientX - r.left) / r.width) * 100,
+        y: ((e.clientY - r.top) / r.height) * 100,
+      };
       queue();
     };
-    const onLeave = () => { tgt.current = { x: 60, y: 40 }; queue(); };
+    const onLeave = () => {
+      tgt.current = { x: 60, y: 40 };
+      queue();
+    };
     node.addEventListener("mousemove", onMove);
     node.addEventListener("mouseleave", onLeave);
     return () => {
@@ -56,55 +69,37 @@ export function ProjectCard({ project, founders }: ProjectCardProps) {
   }, []);
 
   const statusColor = STATUS_COLOR[project.status] ?? "#94a3b8";
-  const projectFounders = founders.filter((f) => project.founders.includes(f.id));
+  // Header image is always pixel-art: project.cover (if explicitly set, must be
+  // pixel-art) or one of the 10 generated default covers. Real screenshots
+  // (project.thumb) are intentionally NOT used here.
+  const cover = pickCover(project.slug, project.cover);
 
   const cardStyle = { "--mx": "60%", "--my": "40%" } as React.CSSProperties;
 
   const inner = (
     <>
-      {/* Glow layer */}
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(120% 120% at var(--mx) var(--my), ${project.accent}18 0%, transparent 65%)`,
+          background: `radial-gradient(120% 120% at var(--mx) var(--my), ${project.accent}22 0%, transparent 65%)`,
         }}
         aria-hidden
       />
 
-      {/* Thumbnail */}
       <div
-        className="relative w-full overflow-hidden border-b border-white/[0.07]"
-        style={{ height: 180 }}
+        className="relative w-full aspect-[16/9] overflow-hidden border-b-2 border-white/[0.08] bg-[var(--background)]"
       >
-        {project.thumb ? (
-          <Image
-            src={project.thumb}
-            alt={project.name}
-            fill
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        ) : (
-          /* Accent-colored placeholder for projects without a live URL */
-          <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ background: `linear-gradient(135deg, ${project.accent}22 0%, ${project.accent}08 100%)` }}
-          >
-            <span
-              className="pixel-label text-[9px] opacity-30"
-              style={{ color: project.accent }}
-            >
-              {project.status.toUpperCase()}
-            </span>
-          </div>
-        )}
-        {/* Overlay fade at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#0d0d14] to-transparent" />
+        <Image
+          src={cover}
+          alt={project.name}
+          fill
+          unoptimized={cover.endsWith(".svg")}
+          className="pixelated object-contain object-center transition-transform duration-700 group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
 
-      {/* Info */}
-      <div className="relative z-10 p-6">
-        {/* Name row */}
+      <div className={`relative z-10 ${wide ? "p-7 sm:p-8" : "p-6"}`}>
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span
@@ -112,7 +107,9 @@ export function ProjectCard({ project, founders }: ProjectCardProps) {
               style={{ background: statusColor, boxShadow: `0 0 6px ${statusColor}` }}
               aria-hidden
             />
-            <h3 className="text-xl font-semibold tracking-tight text-white">{project.name}</h3>
+            <h3 className="text-xl font-semibold tracking-tight text-white">
+              {project.name}
+            </h3>
             <span className="pixel-label text-[7px] text-white/30">{project.year}</span>
           </div>
           {project.url && (
@@ -120,11 +117,11 @@ export function ProjectCard({ project, founders }: ProjectCardProps) {
           )}
         </div>
 
-        {/* Tagline */}
-        <p className="mt-2 text-sm leading-relaxed text-white/50">{project.tagline}</p>
+        <p className={`text-sm leading-relaxed text-white/55 ${wide ? "mt-3" : "mt-2"}`}>
+          {project.tagline}
+        </p>
 
-        {/* Stack + founders */}
-        <div className="mt-4 flex flex-wrap items-center gap-1.5">
+        <div className={`flex flex-wrap items-center gap-1.5 ${wide ? "mt-5" : "mt-4"}`}>
           {project.stack.map((t) => (
             <span
               key={t}
@@ -139,7 +136,7 @@ export function ProjectCard({ project, founders }: ProjectCardProps) {
   );
 
   const cls =
-    "card-mobile-shine group relative block overflow-hidden border border-white/[0.08] bg-[#0d0d14] transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-lg";
+    "card-mobile-shine group relative block overflow-hidden border-2 border-white/[0.10] bg-[var(--background)] transition-all duration-300 hover:border-white/25 hover:-translate-y-0.5";
 
   if (project.url) {
     return (

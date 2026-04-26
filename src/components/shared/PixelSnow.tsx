@@ -91,7 +91,7 @@ export function PixelSnow() {
     <canvas
       ref={canvasRef}
       className="pointer-events-none fixed inset-0"
-      style={{ zIndex: -5 }}
+      style={{ zIndex: 1 }}
       aria-hidden
     />
   );

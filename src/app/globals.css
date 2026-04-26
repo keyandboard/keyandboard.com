@@ -6,6 +6,7 @@
   --neon: #00ff41;
   --neon-dim: rgba(0, 255, 65, 0.5);
   --neon-faint: rgba(0, 255, 65, 0.12);
+  --card-gap: 1px;
 }
 
 @theme inline {
@@ -18,7 +19,7 @@
 }
 
 html {
-  background: var(--background);
+  background: #09090f;
   color: var(--foreground);
 }
 

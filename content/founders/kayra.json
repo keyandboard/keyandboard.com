@@ -1,0 +1,178 @@
+{
+  "profile": {
+    "id": "kayra",
+    "name": "Kayra Uckilinc",
+    "handle": "@kayraucklnc",
+    "title": "Full-Stack Engineer",
+    "location": "Remote",
+    "bio": "Full-stack engineer obsessed with shipping products that solve real problems. I move fast across the stack — Next.js on the front, Postgres + TypeScript on the back. Co-founder of keyandboard. Building HeyHoney, FlyingPapers, PromptArena, and Enflasyon Sepeti.",
+    "coffee": "Always open to chat about side projects, indie hacking, and building from zero — drop me a line.",
+    "avatar": "/avatars/kayra.png",
+    "headline": {
+      "lead": "Kayra,",
+      "italic": "shipping product, end-to-end."
+    },
+    "status": {
+      "label": "Shipping"
+    },
+    "nameplate": {
+      "exe": "KAYRA.EXE",
+      "tags": ["FULL STACK // LVL 05", "INDIE BUILDER"]
+    },
+    "site": {
+      "domain": "kayrauckilinc.dev",
+      "subdomain": "kayra.keyandboard.com",
+      "tagline": "Full-stack. Shipped fast. Kept honest.",
+      "theme": {
+        "preset": "kayra",
+        "background": "#09090f",
+        "foreground": "#e8e8f0",
+        "accent": "#7dd3fc",
+        "spacing": "wide",
+        "pixelHeavy": true,
+        "wallpaper": "/wallpapers/kayra.svg",
+        "wallpaperOpacity": 0.85
+      }
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/kayraucklnc"
+      },
+      {
+        "label": "Site",
+        "href": "https://kayrauckilinc.com"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "heyhoney",
+      "name": "HeyHoney",
+      "tagline": "Gamified relationship companion for couples",
+      "description": "A mobile app that turns everyday couple moments into shared adventures. Players earn points, unlock milestones, and deepen their bond through playful daily challenges synced in real-time.",
+      "url": "https://heyhoney.app",
+      "thumb": "/thumbs/heyhoney.jpg",
+      "cover": "/covers/projects/heyhoney.svg",
+      "year": 2024,
+      "coFounders": [
+        "baran"
+      ],
+      "stack": [
+        "React Native",
+        "iOS",
+        "Android",
+        "Firebase"
+      ],
+      "status": "Live",
+      "accent": "#ff6b6b",
+      "highlights": [
+        "50k+ users",
+        "iOS & Android",
+        "Real-time sync"
+      ]
+    },
+    {
+      "slug": "flyingpapers",
+      "name": "FlyingPapers",
+      "tagline": "AI-native document collection for regulated workflows",
+      "description": "Structured document collection platform for visas, apostilles, and contracts. Clients upload and translate documents guided by AI-generated checklists. Reviewers approve via canvas-based editing tools.",
+      "url": "https://flyingpapers.app",
+      "thumb": "/thumbs/flyingpapers.jpg",
+      "cover": "/covers/projects/flyingpapers.svg",
+      "year": 2025,
+      "coFounders": [
+        "baran"
+      ],
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "Fabric.js",
+        "pdf-lib"
+      ],
+      "status": "Live",
+      "accent": "#4dabf7",
+      "highlights": [
+        "AI questionnaires",
+        "PDF canvas editor",
+        "Multi-role workflow"
+      ]
+    },
+    {
+      "slug": "promptarena",
+      "name": "PromptArena",
+      "tagline": "Real-time AI negotiation practice platform",
+      "description": "Users negotiate against GPT-4, Claude, and LLaMA opponents in live sessions. A judge system scores every exchange. Built for sales teams and founders who want to sharpen their persuasion skills.",
+      "url": "https://promptarena.app",
+      "thumb": "/thumbs/promptarena.jpg",
+      "cover": "/covers/projects/promptarena.svg",
+      "year": 2025,
+      "coFounders": [
+        "baran"
+      ],
+      "stack": [
+        "Next.js",
+        "FastAPI",
+        "Socket.IO",
+        "Supabase"
+      ],
+      "status": "Beta",
+      "accent": "#a78bfa",
+      "highlights": [
+        "Live AI opponents",
+        "Judge scoring",
+        "Real-time WebSocket"
+      ]
+    },
+    {
+      "slug": "yourlovepage",
+      "name": "YourLovePage",
+      "tagline": "Personal sharable pages for love letters and tributes",
+      "description": "Create a beautiful, permanent page dedicated to someone you love. Share a link — no account required to view. Built for anniversaries, birthdays, and unforgettable moments.",
+      "url": "https://www.yourlovepage.com",
+      "thumb": "/thumbs/yourlovepage.jpg",
+      "cover": "/covers/projects/yourlovepage.svg",
+      "year": 2024,
+      "coFounders": [
+        "baran"
+      ],
+      "stack": [
+        "Next.js",
+        "Tailwind",
+        "Supabase",
+        "Stripe"
+      ],
+      "status": "Live",
+      "accent": "#f472b6",
+      "highlights": [
+        "No-account viewing",
+        "Stripe payments",
+        "Permanent links"
+      ]
+    },
+    {
+      "slug": "enflasyon-sepeti",
+      "name": "Enflasyon Sepeti",
+      "tagline": "Crowdsourced real-time inflation tracker for Turkey",
+      "description": "Citizens report current prices for everyday goods. Aggregated data reveals real-world inflation trends across cities, giving people transparent, crowd-verified price intelligence.",
+      "url": "https://enflasyonsepeti.org",
+      "thumb": "/thumbs/enflasyon.jpg",
+      "cover": "/covers/projects/enflasyon-sepeti.svg",
+      "year": 2024,
+      "coFounders": [],
+      "stack": [
+        "Next.js",
+        "PostgreSQL",
+        "TypeScript",
+        "Chart.js"
+      ],
+      "status": "Live",
+      "accent": "#fbbf24",
+      "highlights": [
+        "Crowdsourced data",
+        "Real-time charts",
+        "City-level granularity"
+      ]
+    }
+  ]
+}
