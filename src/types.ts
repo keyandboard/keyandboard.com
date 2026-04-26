@@ -42,10 +42,12 @@ export interface FounderSite {
 }
 
 export interface FounderHeadline {
-  /** Top serif line, e.g. "Baran," */
+  /** Top line, e.g. "Baran," */
   lead: string;
-  /** Italic continuation, e.g. "building with data in SF." */
+  /** Continuation, e.g. "building with data in SF." */
   italic: string;
+  /** Render style for the second line. Defaults to "serif-italic". */
+  style?: "serif-italic" | "sans-light";
 }
 
 export interface FounderStatus {

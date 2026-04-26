@@ -119,9 +119,15 @@ export function FounderView({ content }: FounderViewProps) {
             >
               {headline.lead}
               <br />
-              <span className="font-serif italic font-normal text-white">
-                {headline.italic}
-              </span>
+              {headline.style === "sans-light" ? (
+                <span className="font-light text-white/85">
+                  {headline.italic}
+                </span>
+              ) : (
+                <span className="font-serif italic font-normal text-white">
+                  {headline.italic}
+                </span>
+              )}
             </h1>
 
             <p

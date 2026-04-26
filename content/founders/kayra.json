@@ -5,18 +5,19 @@
     "handle": "@kayraucklnc",
     "title": "Full-Stack Engineer",
     "location": "Remote",
-    "bio": "Full-stack engineer obsessed with shipping products that solve real problems. I move fast across the stack — Next.js on the front, Postgres + TypeScript on the back. Co-founder of keyandboard. Building HeyHoney, FlyingPapers, PromptArena, and Enflasyon Sepeti.",
-    "coffee": "Always open to chat about side projects, indie hacking, and building from zero — drop me a line.",
+    "bio": "Full-stack engineer. I ship fast — Next.js on the front, Postgres on the back. Co-founder of keyandboard.",
+    "coffee": "Always open to chat about side projects and building from zero — drop me a line.",
     "avatar": "/avatars/kayra.png",
     "headline": {
       "lead": "Kayra,",
-      "italic": "shipping product, end-to-end."
+      "italic": "shipping product, end-to-end.",
+      "style": "sans-light"
     },
     "status": {
       "label": "Shipping"
     },
     "nameplate": {
-      "exe": "KAYRA.EXE",
+      "exe": "KAYRA",
       "tags": ["FULL STACK // LVL 05", "INDIE BUILDER"]
     },
     "site": {
