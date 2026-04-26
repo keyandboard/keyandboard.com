@@ -30,8 +30,8 @@
         "accent": "#00ff41",
         "spacing": "wide",
         "pixelHeavy": true,
-        "wallpaper": "/wallpapers/baran.svg",
-        "wallpaperOpacity": 0.65
+        "wallpaper": "/xp-wallpaper.png",
+        "wallpaperOpacity": 0.75
       }
     },
     "links": [
@@ -84,8 +84,8 @@
     {
       "slug": "flyingpapers",
       "name": "FlyingPapers",
-      "tagline": "AI-native document collection for regulated workflows",
-      "description": "Structured document collection platform for visas, apostilles, and contracts. Clients upload and translate documents guided by AI-generated checklists. Reviewers approve via canvas-based editing tools.",
+      "tagline": "The AI-native document collection platform for regulated workflows — visa files, apostilles, contracts.",
+      "description": "Multi-role platform (User, Reviewer, Admin) with AI-powered questionnaire generation, canvas-based PDF editing via Fabric.js, and a structured file upload/translation workflow. Built for processing official documents across 20+ countries.",
       "url": "https://flyingpapers.app",
       "thumb": "/thumbs/flyingpapers.jpg",
       "cover": "/covers/projects/flyingpapers.svg",
@@ -110,8 +110,8 @@
     {
       "slug": "promptarena",
       "name": "PromptArena",
-      "tagline": "Real-time AI negotiation practice platform",
-      "description": "Users negotiate against GPT-4, Claude, and LLaMA opponents in live sessions. A judge system scores every exchange. Built for sales teams and founders who want to sharpen their persuasion skills.",
+      "tagline": "A real-time arena where you negotiate against AI opponents — and get scored by an AI judge.",
+      "description": "Built solo from scratch. Users go head-to-head with GPT/Claude/LLaMA opponents in real-time negotiation sessions over WebSockets. A pairwise + rubric-based AI judge system scores each round. Stack: Next.js 15, React 19, FastAPI, Socket.IO, Supabase, Stripe.",
       "url": "https://promptarena.app",
       "thumb": "/thumbs/promptarena.jpg",
       "cover": "/covers/projects/promptarena.svg",
@@ -136,8 +136,8 @@
     {
       "slug": "yourlovepage",
       "name": "YourLovePage",
-      "tagline": "Personal sharable pages for love letters and tributes",
-      "description": "Create a beautiful, permanent page dedicated to someone you love. Share a link — no account required to view. Built for anniversaries, birthdays, and unforgettable moments.",
+      "tagline": "Personal, sharable pages for the things you love (and the people you love).",
+      "description": "A delightfully simple builder for single-purpose love letters, anniversary sites, and tribute pages. Hyper-minimal UX, beautiful templates, instant publishing on a clean URL.",
       "url": "https://www.yourlovepage.com",
       "thumb": "/thumbs/yourlovepage.jpg",
       "cover": "/covers/projects/yourlovepage.svg",
@@ -162,8 +162,8 @@
     {
       "slug": "adhd-os",
       "name": "adhd-os",
-      "tagline": "Voice-note and task management for ADHD brains",
-      "description": "A mobile operating system for the ADHD mind. Speak your thoughts, let AI structure them into tasks, and surface the right thing at the right moment — no friction, no forgetting.",
+      "tagline": "A voice-note and task management mobile app built specifically for ADHD brains.",
+      "description": "React Native app with voice-note capture, structured task flows, and a UX designed around ADHD cognitive patterns — low friction capture, minimal context-switching, and progressive disclosure. Built with Expo Router and Supabase.",
       "url": null,
       "thumb": null,
       "cover": "/covers/projects/adhd-os.svg",
@@ -186,8 +186,8 @@
     {
       "slug": "phantom",
       "name": "Phantom",
-      "tagline": "Autonomous script-to-publish content engine",
-      "description": "An internal automation pipeline that takes a topic, writes a script with GPT-4, generates voice with ElevenLabs, renders video with Remotion, and publishes — all without human intervention.",
+      "tagline": "An autonomous content engine — from idea to published, no hands required.",
+      "description": "A fully automated media production pipeline built for scale. Orchestrates script generation, AI voiceover, visual rendering, and multi-platform distribution through a single workflow. Designed to run quietly on infrastructure you control, not platforms that can pull the plug.",
       "url": null,
       "thumb": null,
       "cover": "/covers/projects/phantom.svg",
@@ -210,8 +210,8 @@
     {
       "slug": "social-profiling",
       "name": "Social Profiling",
-      "tagline": "NLP demographics prediction from social media text",
-      "description": "TÜBITAK-funded research applying transformer models (BERTweet) and fine-tuned LLMs to predict demographic attributes from Turkish social media content.",
+      "tagline": "Predicting age, gender, and race of social media users from text — TÜBITAK-funded research.",
+      "description": "Bachelor thesis evolving toward journal submission. Twitter/X scraping pipeline → LLM-based topic & sentiment labeling, with BERT/BERTweet baselines. Public Hugging Face Space for labeling and inspection. Recipient of the national TÜBITAK 2209-A undergraduate research grant.",
       "url": null,
       "thumb": null,
       "cover": "/covers/projects/social-profiling.svg",

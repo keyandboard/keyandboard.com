@@ -56,12 +56,6 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
             </div>
             <div className="pixel-card bg-white/[0.02] px-6 py-3">
               <span className="pixel-label text-[8px] text-[var(--neon)]">
-                50k+
-              </span>
-              <span className="ml-3 text-sm text-white/50">users</span>
-            </div>
-            <div className="pixel-card bg-white/[0.02] px-6 py-3">
-              <span className="pixel-label text-[8px] text-[var(--neon)]">
                 {profiles.length}
               </span>
               <span className="ml-3 text-sm text-white/50">founders</span>
