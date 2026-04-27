@@ -190,14 +190,14 @@ export function FounderView({ content }: FounderViewProps) {
       </section>
 
       {/* ── Footer ───────────────────────────────────────────── */}
-      <footer className="relative z-20 border-t border-white/[0.06] bg-black/30 px-6 py-8 backdrop-blur-sm sm:px-12 lg:px-20">
+      <footer className="relative z-20 border-t border-white/[0.12] bg-black/40 px-6 py-8 backdrop-blur-sm sm:px-12 lg:px-20">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <span className="pixel-label text-[7px] text-white/40">
+          <span className="pixel-label text-[7px] text-white/60">
             {profile.name.toUpperCase()} © {new Date().getFullYear()}
           </span>
           <Link
             href="https://keyandboard.com"
-            className="pixel-label text-[7px] text-white/40 hover:text-white/70"
+            className="pixel-label text-[7px] text-white/50 hover:text-white/80"
           >
             ↳ keyandboard.com
           </Link>
