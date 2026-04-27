@@ -19,6 +19,11 @@
       "exe": "BARAN.EXE",
       "tags": ["AI ENG // LVL 05", "PICUS SECURITY"]
     },
+    "cv": {
+      "label": "Request Résumé",
+      "href": "mailto:a.baranorhan@gmail.com?subject=Résumé%20Request%20-%20Baran%20Orhan",
+      "updated": "April 2026"
+    },
     "site": {
       "domain": "baranorhan.dev",
       "subdomain": "baran.keyandboard.com",

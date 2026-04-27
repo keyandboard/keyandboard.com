@@ -64,6 +64,12 @@ export interface FounderNameplate {
   tags: string[];
 }
 
+export interface FounderCv {
+  label: string;
+  href: string;
+  updated?: string;
+}
+
 export interface FounderProfile {
   id: string;
   name: string;
@@ -80,6 +86,8 @@ export interface FounderProfile {
   status?: FounderStatus;
   /** Optional pixel-art nameplate beneath the avatar. */
   nameplate?: FounderNameplate;
+  /** Optional résumé / CV link shown as a full-width button. */
+  cv?: FounderCv;
   site: FounderSite;
   links: FounderLink[];
 }
