@@ -43,12 +43,12 @@
       {
         "label": "Site",
         "href": "https://kayrauckilinc.com"
-      },
-      {
-        "label": "CV",
-        "href": "https://docs.google.com/document/d/1nEmlrvniKwMvj4-zvVDpL373vlMRISvkXJ0zxoyNuuQ/view?usp=sharing"
       }
-    ]
+    ],
+    "cv": {
+      "label": "View CV",
+      "href": "https://docs.google.com/document/d/1nEmlrvniKwMvj4-zvVDpL373vlMRISvkXJ0zxoyNuuQ/preview"
+    }
   },
   "projects": [
     {
