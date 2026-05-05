@@ -1,5 +1,6 @@
 import { PixelMouseFx } from "@/components/shared/PixelMouseFx";
 import { PixelSnow } from "@/components/shared/PixelSnow";
+import { PixelWallpaper } from "@/components/shared/PixelWallpaper";
 import { ProjectGrid } from "@/components/shared/ProjectGrid";
 import { FounderCard } from "@/components/shared/FounderCard";
 import { themeStyle, KEYANDBOARD_THEME } from "@/lib/theme";
@@ -15,6 +16,7 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
 
   return (
     <main className="relative min-h-screen" style={themeStyle(KEYANDBOARD_THEME)}>
+      <PixelWallpaper src="/wallpapers/keyandboard.png" opacity={0.8} dim={0.58} />
       <PixelSnow />
       <PixelMouseFx color={KEYANDBOARD_THEME.accent} />
 
@@ -31,7 +33,7 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
         </a>
       </nav>
 
-      <section className="relative z-20 px-6 pt-16 pb-24 sm:px-12 lg:px-20">
+      <section className="relative z-20 min-h-[72vh] px-6 pt-16 pb-28 sm:min-h-[78vh] sm:px-12 lg:min-h-[82vh] lg:px-20">
         <div className="max-w-4xl">
           <p className="pixel-label text-[8px] text-white/30 mb-6">
             &gt; A TWO-PERSON STUDIO
@@ -40,12 +42,11 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
             We build things
             <br />
             <span className="font-serif italic text-white/60">
-              people actually use.
+              that makes difference.
             </span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-white/55 sm:text-lg">
-            Consumer apps, developer tools, and AI experiments — shipped fast,
-            kept honest.
+            Consumer apps, developer tools enterprise projects.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <div className="pixel-card bg-white/[0.02] px-6 py-3">
@@ -68,7 +69,7 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
         <p className="pixel-label text-[8px] text-white/25 mb-8 uppercase tracking-widest">
           Products
         </p>
-        <ProjectGrid projects={projects} />
+        <ProjectGrid projects={projects} compact />
       </section>
 
       <section className="relative z-20 px-6 pb-24 sm:px-12 lg:px-20">

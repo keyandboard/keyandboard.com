@@ -20,11 +20,11 @@ export function FounderCard({ founder }: FounderCardProps) {
       target="_blank"
       rel="noreferrer"
       aria-label={`Open ${founder.name}'s site`}
-      className="pixel-card group relative block overflow-hidden bg-[var(--background)] transition-all duration-300 hover:border-white/30 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--neon)]"
+      className="pixel-card group relative block overflow-hidden bg-[var(--background)] transition-all duration-300 hover:border-white/30 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--neon)] sm:h-[18rem]"
     >
-      <div className="flex flex-col gap-0 sm:flex-row">
+      <div className="flex flex-col gap-0 sm:grid sm:h-full sm:grid-cols-[11rem_minmax(0,1fr)]">
         {founder.avatar && (
-          <div className="relative shrink-0 w-full aspect-square sm:w-44 sm:aspect-auto sm:self-stretch overflow-hidden border-b-2 sm:border-b-0 sm:border-r-2 border-white/[0.08]">
+          <div className="relative w-full aspect-square overflow-hidden border-b-2 border-white/[0.08] sm:h-full sm:aspect-auto sm:border-b-0 sm:border-r-2">
             <Image
               src={founder.avatar}
               alt={founder.name}
@@ -50,7 +50,7 @@ export function FounderCard({ founder }: FounderCardProps) {
             <p className="pixel-label text-[7px] text-white/40 mt-1">
               {founder.title}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-white/55">
+            <p className="mt-3 text-sm leading-relaxed text-white/55 sm:line-clamp-4">
               {founder.bio}
             </p>
           </div>

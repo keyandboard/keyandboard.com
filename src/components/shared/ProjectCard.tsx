@@ -94,7 +94,7 @@ export function ProjectCard({ project, wide = false }: ProjectCardProps) {
           alt={project.name}
           fill
           unoptimized={cover.endsWith(".svg")}
-          className="pixelated object-contain object-center transition-transform duration-700 group-hover:scale-[1.03]"
+          className="pixelated object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>

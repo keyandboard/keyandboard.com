@@ -11,7 +11,7 @@
     "headline": {
       "lead": "Kayra,",
       "italic": "shipping product, end-to-end.",
-      "style": "sans-light"
+      "style": "serif-italic"
     },
     "status": {
       "label": "Shipping"
@@ -43,6 +43,10 @@
       {
         "label": "Site",
         "href": "https://kayrauckilinc.com"
+      },
+      {
+        "label": "CV",
+        "href": "https://docs.google.com/document/d/1nEmlrvniKwMvj4-zvVDpL373vlMRISvkXJ0zxoyNuuQ/view?usp=sharing"
       }
     ]
   },
