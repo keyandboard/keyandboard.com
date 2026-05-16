@@ -69,6 +69,7 @@ export function ProjectCard({ project, wide = false }: ProjectCardProps) {
   }, []);
 
   const statusColor = STATUS_COLOR[project.status] ?? "#94a3b8";
+  const primaryHighlight = project.highlights[0];
   // Header image is always pixel-art: project.cover (if explicitly set, must be
   // pixel-art) or one of the 10 generated default covers. Real screenshots
   // (project.thumb) are intentionally NOT used here.
@@ -120,6 +121,12 @@ export function ProjectCard({ project, wide = false }: ProjectCardProps) {
         <p className={`text-sm leading-relaxed text-white/55 ${wide ? "mt-3" : "mt-2"}`}>
           {project.tagline}
         </p>
+
+        {primaryHighlight && (
+          <div className={`font-mono text-xs font-semibold uppercase tracking-wide text-white/80 ${wide ? "mt-4" : "mt-3"}`}>
+            {primaryHighlight}
+          </div>
+        )}
 
         <div className={`flex flex-wrap items-center gap-1.5 ${wide ? "mt-5" : "mt-4"}`}>
           {project.stack.map((t) => (

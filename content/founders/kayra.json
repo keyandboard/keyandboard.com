@@ -56,7 +56,7 @@
       "name": "HeyHoney",
       "tagline": "Gamified relationship companion for couples",
       "description": "A mobile app that turns everyday couple moments into shared adventures. Players earn points, unlock milestones, and deepen their bond through playful daily challenges synced in real-time.",
-      "url": "https://heyhoney.app",
+      "url": null,
       "thumb": "/thumbs/heyhoney.jpg",
       "cover": "/covers/projects/heyhoney.svg",
       "year": 2024,
@@ -98,7 +98,7 @@
       "status": "Live",
       "accent": "#4dabf7",
       "highlights": [
-        "AI questionnaires",
+        "500+ clients",
         "PDF canvas editor",
         "Multi-role workflow"
       ]
@@ -124,7 +124,7 @@
       "status": "Beta",
       "accent": "#a78bfa",
       "highlights": [
-        "Live AI opponents",
+        "10k+ users",
         "Judge scoring",
         "Real-time WebSocket"
       ]
@@ -150,7 +150,7 @@
       "status": "Live",
       "accent": "#f472b6",
       "highlights": [
-        "No-account viewing",
+        "1M+ visitors total",
         "Stripe payments",
         "Permanent links"
       ]
