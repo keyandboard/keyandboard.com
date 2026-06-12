@@ -32,7 +32,6 @@ export function ProjectViewport({ project, index, total }: Props) {
   const host = project.url
     ? new URL(project.url).host.replace(/^www\./, "")
     : null;
-  const coFounders = project.coFounders ?? [];
 
   return (
     <div
@@ -143,21 +142,8 @@ export function ProjectViewport({ project, index, total }: Props) {
           ))}
         </ul>
 
-        {/* stat row */}
-        <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/10 pt-4">
-          <Stat label="STATUS" value={project.status} accent={statusColor} />
-          <Stat
-            label={coFounders.length ? "BUILT WITH" : "TYPE"}
-            value={
-              coFounders.length
-                ? coFounders.map((c) => c[0].toUpperCase() + c.slice(1)).join(", ")
-                : "Solo build"
-            }
-          />
-        </div>
-
         {/* stack tags */}
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-5 flex flex-wrap gap-1.5 border-t border-white/10 pt-4">
           {project.stack.map((tech) => (
             <span
               key={tech}
@@ -202,28 +188,6 @@ export function ProjectViewport({ project, index, total }: Props) {
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-function Stat({
-  label,
-  value,
-  accent,
-}: {
-  label: string;
-  value: string;
-  accent?: string;
-}) {
-  return (
-    <div className="min-w-0">
-      <span className="pixel-label block text-[6px] text-white/30">{label}</span>
-      <span
-        className="mt-1 block truncate text-xs font-medium"
-        style={{ color: accent ?? "rgba(255,255,255,0.7)" }}
-      >
-        {value}
-      </span>
     </div>
   );
 }
