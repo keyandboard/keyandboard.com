@@ -158,3 +158,36 @@ body::after {
   0% { background-position: 240% 0; }
   100% { background-position: -140% 0; }
 }
+
+/* CRT boot/scan — replays when the project viewport loads a new project */
+@keyframes crt-boot {
+  0% { opacity: 0; transform: scale(1.04); filter: brightness(2.2) saturate(0); }
+  18% { opacity: 1; filter: brightness(1.6) saturate(0.4); }
+  40% { transform: scale(1); filter: brightness(0.95) saturate(1); }
+  100% { transform: scale(1); filter: brightness(1) saturate(1); }
+}
+
+.crt-boot {
+  animation: crt-boot 0.42s ease-out;
+}
+
+.crt-boot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 32%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.06), transparent);
+  animation: crt-sweep 0.42s ease-out;
+}
+
+@keyframes crt-sweep {
+  0% { top: -32%; }
+  100% { top: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-boot { animation: none; }
+  .crt-boot::after { display: none; }
+}
