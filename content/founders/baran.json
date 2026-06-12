@@ -189,27 +189,28 @@
       ]
     },
     {
-      "slug": "phantom",
-      "name": "Phantom",
-      "tagline": "An autonomous content engine — from idea to published, no hands required.",
-      "description": "A fully automated media production pipeline built for scale. Orchestrates script generation, AI voiceover, visual rendering, and multi-platform distribution through a single workflow. Designed to run quietly on infrastructure you control, not platforms that can pull the plug.",
-      "url": null,
+      "slug": "reelform",
+      "name": "ReelForm",
+      "tagline": "Your short-form video team, on autopilot — from script to published Reel, no hands required.",
+      "description": "An autonomous short-form video studio. ReelForm writes brand-tuned scripts, sources and generates the visuals, synthesizes the voiceover, and renders broadcast-quality 9:16 videos with word-synced captions — then auto re-cuts and schedules them across platforms. Built to ship 15+ videos a week for less than the cost of a single freelance edit.",
+      "url": "https://reelform.vercel.app",
       "thumb": null,
-      "cover": "/covers/projects/phantom.svg",
+      "cover": "/covers/projects/reelform.svg",
       "year": 2026,
       "coFounders": [],
       "stack": [
-        "Docker",
         "Remotion",
         "OpenAI",
-        "ElevenLabs"
+        "ElevenLabs",
+        "FLUX",
+        "Pexels"
       ],
-      "status": "Operational",
-      "accent": "#6366f1",
+      "status": "Beta",
+      "accent": "#FF4D6D",
       "highlights": [
-        "Zero-touch pipeline",
-        "AI voice + video",
-        "Docker orchestration"
+        "Script → render → publish, automated",
+        "9:16 with word-synced captions",
+        "Auto multi-platform posting"
       ]
     },
     {

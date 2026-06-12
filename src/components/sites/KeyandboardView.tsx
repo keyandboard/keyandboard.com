@@ -1,4 +1,3 @@
-import { PixelMouseFx } from "@/components/shared/PixelMouseFx";
 import { PixelSnow } from "@/components/shared/PixelSnow";
 import { PixelWallpaper } from "@/components/shared/PixelWallpaper";
 import { ProjectGrid } from "@/components/shared/ProjectGrid";
@@ -18,7 +17,6 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
     <main className="relative min-h-screen" style={themeStyle(KEYANDBOARD_THEME)}>
       <PixelWallpaper src="/wallpapers/keyandboard.png" opacity={0.8} dim={0.58} />
       <PixelSnow />
-      <PixelMouseFx color={KEYANDBOARD_THEME.accent} />
 
       <nav className="relative z-30 flex items-center justify-between px-6 py-6 sm:px-12 lg:px-20">
         <span className="pixel-label text-[10px] text-[var(--neon)]">

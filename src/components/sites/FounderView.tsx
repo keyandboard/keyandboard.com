@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, FileText } from "lucide-react";
-import { PixelMouseFx } from "@/components/shared/PixelMouseFx";
 import { PixelSnow } from "@/components/shared/PixelSnow";
 import { PixelWallpaper } from "@/components/shared/PixelWallpaper";
 import { ProjectGrid } from "@/components/shared/ProjectGrid";
@@ -93,7 +92,6 @@ export function FounderView({ content }: FounderViewProps) {
         />
       )}
       <PixelSnow />
-      <PixelMouseFx color={accent} />
 
       {/* ── Nav ───────────────────────────────────────────────── */}
       <nav className="relative z-30 grid grid-cols-3 items-center px-6 pt-6 sm:px-12 lg:px-20">
