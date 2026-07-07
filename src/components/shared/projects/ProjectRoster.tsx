@@ -11,8 +11,8 @@ interface Props {
 }
 
 /**
- * Arcade-style selectable roster. Each slot is a "fighter slot" — hover or
- * click to load that project into the viewport. The active slot gets a neon
+ * Arcade-style selectable roster. Each slot is a "fighter slot" — click (or
+ * keyboard-focus) to load that project into the viewport. The active slot gets a neon
  * bracket, an offset pixel shadow, and a glowing accent chip.
  *
  * Vertical layout drives the desktop side rail; horizontal becomes a swipeable
@@ -50,7 +50,6 @@ export function ProjectRoster({
             <button
               type="button"
               onClick={() => onSelect(i)}
-              onMouseEnter={() => onHover(i)}
               onFocus={() => onHover(i)}
               className={
                 "group relative flex items-center gap-3 border text-left transition-all duration-150 " +

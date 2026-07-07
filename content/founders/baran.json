@@ -88,33 +88,6 @@
       ]
     },
     {
-      "slug": "heyhoney",
-      "name": "HeyHoney",
-      "tagline": "A gamified relationship companion for couples — synchronized daily rituals for iOS and Android.",
-      "description": "An interactive daily ritual for couples. Partners get synchronized prompts, reflect independently, then unlock each other's answers. Built native on iOS and Android with real-time sync, streaks, progress tracking, and dynamic status systems that turn emotional check-ins into a habit.",
-      "url": null,
-      "thumb": "/thumbs/heyhoney.jpg",
-      "cover": "/covers/projects/heyhoney.svg",
-      "year": 2024,
-      "coFounders": [
-        "kayra"
-      ],
-      "stack": [
-        "React Native",
-        "iOS",
-        "Android",
-        "Firebase",
-        "Realtime Sync"
-      ],
-      "status": "In development",
-      "accent": "#ff6b6b",
-      "highlights": [
-        "Synchronized daily questions",
-        "iOS & Android",
-        "Real-time sync"
-      ]
-    },
-    {
       "slug": "flyingpapers",
       "name": "FlyingPapers",
       "tagline": "The AI-native document collection platform for regulated workflows — visa files, apostilles, contracts.",
@@ -190,6 +163,33 @@
         "1M+ visitors total",
         "Stripe payments",
         "Permanent links"
+      ]
+    },
+    {
+      "slug": "heyhoney",
+      "name": "HeyHoney",
+      "tagline": "A gamified relationship companion for couples — synchronized daily rituals for iOS and Android.",
+      "description": "An interactive daily ritual for couples. Partners get synchronized prompts, reflect independently, then unlock each other's answers. Built native on iOS and Android with real-time sync, streaks, progress tracking, and dynamic status systems that turn emotional check-ins into a habit.",
+      "url": null,
+      "thumb": "/thumbs/heyhoney.jpg",
+      "cover": "/covers/projects/heyhoney.svg",
+      "year": 2024,
+      "coFounders": [
+        "kayra"
+      ],
+      "stack": [
+        "React Native",
+        "iOS",
+        "Android",
+        "Firebase",
+        "Realtime Sync"
+      ],
+      "status": "In development",
+      "accent": "#ff6b6b",
+      "highlights": [
+        "Synchronized daily questions",
+        "iOS & Android",
+        "Real-time sync"
       ]
     },
     {
