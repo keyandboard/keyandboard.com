@@ -57,7 +57,7 @@ export function ProjectViewport({ project, index, total }: Props) {
       </div>
 
       {/* ── Screen ── */}
-      <div className="relative h-40 shrink-0 overflow-hidden border-b border-white/10 sm:h-48">
+      <div className="relative aspect-video shrink-0 overflow-hidden border-b border-white/10">
         <div key={project.slug} className="crt-boot absolute inset-0">
           <Image
             src={cover}
