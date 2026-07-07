@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GitBranch } from "lucide-react";
 import type { Project } from "@/types";
 import { pickCover } from "@/lib/cover";
 
@@ -49,7 +49,7 @@ export function ProjectViewport({ project, index, total }: Props) {
             style={{ background: accent, boxShadow: `0 0 6px ${accent}` }}
             aria-hidden
           />
-          NOW VIEWING
+          {project.featured ? "FEATURED BUILD · OPEN SOURCE" : "NOW VIEWING"}
         </span>
         <span className="pixel-label text-[7px]" style={{ color: accent }}>
           [{String(index + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}]
@@ -154,8 +154,8 @@ export function ProjectViewport({ project, index, total }: Props) {
           ))}
         </div>
 
-        {/* launch button */}
-        <div className="mt-6">
+        {/* launch + source buttons */}
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           {project.url ? (
             <Link
               href={project.url}
@@ -185,6 +185,25 @@ export function ProjectViewport({ project, index, total }: Props) {
             <span className="pixel-label inline-flex items-center gap-2 border-2 border-white/10 px-4 py-2.5 text-[8px] text-white/35">
               ▮ PRIVATE BUILD
             </span>
+          )}
+
+          {project.repo && (
+            <Link
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 border-2 px-4 py-2.5 transition-all duration-200"
+              style={{
+                borderColor: `${accent}66`,
+                background: "rgba(255,255,255,0.02)",
+                boxShadow: `3px 3px 0 ${accent}22`,
+              }}
+            >
+              <GitBranch className="h-4 w-4" style={{ color: accent }} />
+              <span className="pixel-label text-[8px]" style={{ color: accent }}>
+                SOURCE
+              </span>
+            </Link>
           )}
         </div>
       </div>

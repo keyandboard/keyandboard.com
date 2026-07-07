@@ -60,6 +60,34 @@
   },
   "projects": [
     {
+      "slug": "posecode",
+      "name": "Posecode",
+      "tagline": "A tiny language LLMs can write — describe human movement as text, get a safe, animated 3D figure in the browser.",
+      "description": "Open-source (MIT) DSL + engine for physiotherapy, mobility, posture, yoga and training. LLMs author movement phases as readable .posecode text; the parser validates every joint against range-of-motion tables, and a Three.js engine animates the result at 60fps with forward kinematics, ground-lock and IK. Ships an MCP server so agents can generate, validate and share motion natively.",
+      "url": "https://posecode.org/play",
+      "repo": "https://github.com/posecode-dev/posecode",
+      "featured": true,
+      "thumb": null,
+      "cover": "/covers/projects/posecode.svg",
+      "year": 2026,
+      "coFounders": [],
+      "stack": [
+        "TypeScript",
+        "Three.js",
+        "MCP",
+        "Vite",
+        "DSL"
+      ],
+      "status": "Open Source · MIT",
+      "accent": "#67E8F9",
+      "highlights": [
+        "Every joint clamped to a safe range of motion — always anatomically plausible",
+        "Parser → IR → 60fps Three.js renderer with FK, ground-lock & IK",
+        "MCP server: LLM agents author & validate motion natively",
+        "Open-core monorepo: parser · render · share · eval"
+      ]
+    },
+    {
       "slug": "heyhoney",
       "name": "HeyHoney",
       "tagline": "A gamified relationship companion for couples — synchronized daily rituals for iOS and Android.",

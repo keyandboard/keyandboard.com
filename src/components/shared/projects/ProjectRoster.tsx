@@ -96,6 +96,19 @@ export function ProjectRoster({
                 </span>
               </span>
 
+              {project.featured && (
+                <span
+                  className="pixel-label shrink-0 border px-1.5 py-0.5 text-[6px]"
+                  style={{
+                    color: project.accent,
+                    borderColor: `${project.accent}66`,
+                    background: `${project.accent}14`,
+                  }}
+                >
+                  OSS
+                </span>
+              )}
+
               {!horizontal && (
                 <>
                   <span className="pixel-label hidden shrink-0 text-[6px] text-white/30 sm:inline">
