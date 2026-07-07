@@ -71,7 +71,8 @@ function ResumeButton({ cv }: { cv: FounderCv }) {
 
 export function FounderView({ content }: FounderViewProps) {
   const { profile, projects } = content;
-  const liveCount = projects.filter((p) => p.status === "Live").length;
+  // "live" = launchable: any project a visitor can click through to.
+  const liveCount = projects.filter((p) => Boolean(p.url)).length;
   const wide = profile.site.theme.spacing === "wide";
   const accent = profile.site.theme.accent;
   const year = new Date().getFullYear();

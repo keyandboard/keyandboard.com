@@ -11,7 +11,8 @@ interface KeyandboardViewProps {
 }
 
 export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
-  const liveCount = projects.filter((p) => p.status === "Live").length;
+  // "live products" = launchable: any project a visitor can click through to.
+  const liveCount = projects.filter((p) => Boolean(p.url)).length;
 
   return (
     <main className="relative min-h-screen" style={themeStyle(KEYANDBOARD_THEME)}>
