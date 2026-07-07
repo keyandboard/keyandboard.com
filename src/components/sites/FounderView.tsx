@@ -13,7 +13,7 @@ interface FounderViewProps {
 
 function SectionDivider({ label, accent }: { label: string; accent: string }) {
   return (
-    <div className="mt-24 flex items-center gap-4 sm:mt-28">
+    <div className="flex items-center gap-4">
       <span className="pixel-label text-[8px]" style={{ color: accent }}>
         ▸ {label}
       </span>
@@ -118,7 +118,10 @@ export function FounderView({ content }: FounderViewProps) {
       </nav>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative z-20 px-6 pt-16 pb-24 sm:px-12 sm:pt-24 lg:px-20 lg:pt-28">
+      <section
+        id="top"
+        className="snap-start scroll-mt-6 relative z-20 px-6 pt-16 pb-16 sm:px-12 sm:pt-24 lg:px-20 lg:pt-28"
+      >
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Avatar + nameplate */}
           <div className="lg:col-span-3">
@@ -217,20 +220,22 @@ export function FounderView({ content }: FounderViewProps) {
       </section>
 
       {/* ── Selected work ────────────────────────────────────── */}
-      <div className="relative z-20 px-6 sm:px-12 lg:px-20">
+      <section
+        id="work"
+        className="snap-start scroll-mt-6 relative z-20 px-6 pt-10 pb-12 sm:px-12 lg:px-20"
+      >
         <SectionDivider label="Selected work" accent={accent} />
-      </div>
-      <section className="relative z-20 px-6 pb-12 sm:px-12 lg:px-20">
-        <div className="mt-10">
+        <div className="mt-8">
           <ProjectGrid projects={projects} wide={wide} />
         </div>
       </section>
 
       {/* ── Elsewhere ────────────────────────────────────────── */}
-      <div className="relative z-20 px-6 sm:px-12 lg:px-20">
+      <section
+        id="elsewhere"
+        className="snap-start scroll-mt-6 relative z-20 px-6 pt-10 pb-20 sm:px-12 lg:px-20"
+      >
         <SectionDivider label="Elsewhere" accent={accent} />
-      </div>
-      <section className="relative z-20 px-6 pb-24 sm:px-12 lg:px-20">
         <ContactBlock links={profile.links} />
         {profile.cv && <ResumeButton cv={profile.cv} />}
       </section>
