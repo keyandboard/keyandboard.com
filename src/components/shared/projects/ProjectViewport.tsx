@@ -57,14 +57,14 @@ export function ProjectViewport({ project, index, total }: Props) {
       </div>
 
       {/* ── Screen ── */}
-      <div className="relative aspect-video shrink-0 overflow-hidden border-b border-white/10">
+      <div className="relative aspect-video max-h-[26rem] shrink-0 overflow-hidden border-b border-white/10">
         <div key={project.slug} className="crt-boot absolute inset-0">
           <Image
             src={cover}
             alt={`${project.name} — pixel art`}
             fill
             unoptimized={cover.endsWith(".svg")}
-            className="pixelated object-cover object-center"
+            className="pixelated object-contain object-center"
             sizes="(max-width: 768px) 100vw, 60vw"
           />
         </div>

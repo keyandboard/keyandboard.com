@@ -43,7 +43,7 @@ export function ProjectExplorer({ projects }: Props) {
 
   return (
     <div
-      className="max-w-5xl outline-none"
+      className="outline-none"
       tabIndex={0}
       onKeyDown={onKeyDown}
       aria-label="Project select. Use arrow keys to browse, Enter to launch."
