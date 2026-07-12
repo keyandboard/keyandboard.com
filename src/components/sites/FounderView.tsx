@@ -75,6 +75,7 @@ export function FounderView({ content }: FounderViewProps) {
   const liveCount = projects.filter((p) => Boolean(p.url)).length;
   const wide = profile.site.theme.spacing === "wide";
   const accent = profile.site.theme.accent;
+  const hasCircularAvatar = profile.avatarShape === "circle";
   const year = new Date().getFullYear();
   const headline = profile.headline ?? {
     lead: profile.name + ",",
@@ -122,36 +123,66 @@ export function FounderView({ content }: FounderViewProps) {
         id="top"
         className="snap-start scroll-mt-6 relative z-20 px-6 pt-16 pb-16 sm:px-12 sm:pt-24 lg:px-20 lg:pt-28"
       >
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+        <div
+          className={`grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center ${
+            hasCircularAvatar ? "lg:gap-16" : "lg:gap-12"
+          }`}
+        >
           {/* Avatar + nameplate */}
-          <div className="lg:col-span-3">
+          <div
+            className={
+              hasCircularAvatar
+                ? "flex flex-col items-center lg:col-span-5"
+                : "lg:col-span-3"
+            }
+          >
             {profile.avatar && (
               <div
-                className="relative w-44 sm:w-52 lg:w-full lg:max-w-[220px]"
-                style={{ aspectRatio: "4 / 5" }}
+                className={
+                  hasCircularAvatar
+                    ? "relative aspect-square w-full max-w-[320px] sm:max-w-[390px]"
+                    : "relative w-44 sm:w-52 lg:w-full lg:max-w-[220px]"
+                }
+                style={hasCircularAvatar ? undefined : { aspectRatio: "4 / 5" }}
               >
                 <div
-                  className="absolute inset-0 border-2"
+                  className={`absolute inset-0 border-2 ${
+                    hasCircularAvatar ? "rounded-full border-[3px]" : ""
+                  }`}
                   style={{
                     borderColor: accent,
-                    boxShadow: `0 0 12px ${accent}40, 4px 4px 0 ${accent}1f`,
+                    boxShadow: hasCircularAvatar
+                      ? `0 0 0 8px ${accent}12, 0 0 30px ${accent}38, 8px 8px 0 ${accent}18`
+                      : `0 0 12px ${accent}40, 4px 4px 0 ${accent}1f`,
                   }}
                   aria-hidden
                 />
-                <div className="absolute inset-1 overflow-hidden">
+                <div
+                  className={`absolute overflow-hidden ${
+                    hasCircularAvatar ? "inset-[7px] rounded-full" : "inset-1"
+                  }`}
+                >
                   <Image
                     src={profile.avatar}
                     alt={profile.name}
                     fill
                     className="pixelated object-cover object-center"
-                    sizes="(max-width: 640px) 176px, 220px"
+                    sizes={
+                      hasCircularAvatar
+                        ? "(max-width: 640px) calc(100vw - 48px), 390px"
+                        : "(max-width: 640px) 176px, 220px"
+                    }
                     priority
                   />
                 </div>
               </div>
             )}
             {profile.nameplate && (
-              <div className="mt-4 space-y-1.5">
+              <div
+                className={`mt-5 space-y-1.5 ${
+                  hasCircularAvatar ? "text-center" : ""
+                }`}
+              >
                 <div
                   className="pixel-label text-[10px]"
                   style={{ color: accent, textShadow: `0 0 6px ${accent}55` }}
@@ -168,7 +199,13 @@ export function FounderView({ content }: FounderViewProps) {
           </div>
 
           {/* Headline + bio + stats */}
-          <div className="lg:col-span-9 lg:pl-4">
+          <div
+            className={
+              hasCircularAvatar
+                ? "text-center lg:col-span-7 lg:text-left"
+                : "lg:col-span-9 lg:pl-4"
+            }
+          >
             <p className="pixel-label text-[9px] text-white/75">
               {profile.title.toUpperCase()}{" "}
               <span className="mx-2 text-white/40">·</span> Founder
@@ -189,19 +226,29 @@ export function FounderView({ content }: FounderViewProps) {
             </h1>
 
             <p
-              className="mt-12 max-w-2xl text-[15px] leading-[1.7] text-white/90 sm:text-base"
+              className={`mt-12 max-w-2xl text-[15px] leading-[1.7] text-white/90 sm:text-base ${
+                hasCircularAvatar ? "mx-auto lg:mx-0" : ""
+              }`}
               style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}
             >
               {profile.bio}
             </p>
 
             {profile.coffee && (
-              <p className="mt-6 max-w-2xl pixel-label text-[8px] leading-[1.9] text-white/65 tracking-wide">
+              <p
+                className={`mt-6 max-w-2xl pixel-label text-[8px] leading-[1.9] text-white/65 tracking-wide ${
+                  hasCircularAvatar ? "mx-auto lg:mx-0" : ""
+                }`}
+              >
                 &gt; {profile.coffee}
               </p>
             )}
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div
+              className={`mt-10 flex flex-wrap gap-3 ${
+                hasCircularAvatar ? "justify-center lg:justify-start" : ""
+              }`}
+            >
               <div className="pixel-card bg-black/50 px-5 py-2.5 backdrop-blur-sm">
                 <span className="pixel-label text-[8px]" style={{ color: accent }}>
                   {liveCount}

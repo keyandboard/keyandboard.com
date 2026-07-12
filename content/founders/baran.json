@@ -7,7 +7,8 @@
     "location": "San Francisco · Remote · Ankara",
     "bio": "AI & Data Engineer and Hacettepe AI graduate. I build at the intersection of LLMs, scalable data pipelines, and real products. Currently at Picus Security (a fast-growing SF startup), building AI for cybersecurity. Founder of PromptArena, FlyingPapers ($20k ARR), and Posecode.",
     "coffee": "Always down to chat about AI, data, and building great products — let's grab a virtual coffee.",
-    "avatar": "/avatars/baran.png",
+    "avatar": "/avatars/baran-circle.png",
+    "avatarShape": "circle",
     "headline": {
       "lead": "Baran,",
       "italic": "building with data in SF."
@@ -221,7 +222,7 @@
       "name": "ReelForm",
       "tagline": "Your short-form video team, on autopilot — from script to published Reel, no hands required.",
       "description": "An autonomous short-form video studio. ReelForm writes brand-tuned scripts, sources and generates the visuals, synthesizes the voiceover, and renders broadcast-quality 9:16 videos with word-synced captions — then auto re-cuts and schedules them across platforms. Built to ship 15+ videos a week for less than the cost of a single freelance edit.",
-      "url": "https://reelform.vercel.app",
+      "url": null,
       "thumb": null,
       "cover": "/covers/projects/reelform.svg",
       "year": 2026,
@@ -233,7 +234,7 @@
         "FLUX",
         "Pexels"
       ],
-      "status": "Beta",
+      "status": "Private build",
       "accent": "#FF4D6D",
       "highlights": [
         "Script → render → publish, automated",

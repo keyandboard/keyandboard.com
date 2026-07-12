@@ -84,6 +84,8 @@ export interface FounderProfile {
   /** Optional pixel-font line beneath the bio, e.g. coffee invitation. */
   coffee?: string;
   avatar?: string;
+  /** Optional presentation for artwork that is designed as a circular badge. */
+  avatarShape?: "portrait" | "circle";
   /** Optional structured headline; falls back to `name` when absent. */
   headline?: FounderHeadline;
   /** Optional nav status indicator. */
