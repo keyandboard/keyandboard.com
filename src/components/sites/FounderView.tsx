@@ -208,7 +208,7 @@ export function FounderView({ content }: FounderViewProps) {
           >
             <p className="pixel-label text-[9px] text-white/75">
               {profile.title.toUpperCase()}{" "}
-              <span className="mx-2 text-white/40">·</span> Founder
+              <span className="mx-2 text-white/40">·</span> Builder
             </p>
             <h1
               className="mt-4 text-5xl tracking-[-0.03em] text-white leading-[1.04] sm:text-6xl lg:text-7xl xl:text-[88px]"
