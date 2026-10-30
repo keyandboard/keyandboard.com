@@ -74,6 +74,18 @@ export function ProjectViewport({ project, index, total }: Props) {
             sizes="(max-width: 640px) 100vw, 60vw"
             priority={index === 0}
           />
+          {project.coverVideo && (
+            <video
+              src={project.coverVideo}
+              poster={cover}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden
+              className="absolute inset-0 h-full w-full object-cover object-top"
+            />
+          )}
         </div>
 
         {/* accent glow from the bottom */}

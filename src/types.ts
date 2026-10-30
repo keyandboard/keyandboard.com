@@ -12,6 +12,8 @@ export interface Project {
   featured?: boolean;
   thumb: string | null;
   cover: string | null;
+  /** Optional looping clip (mp4) played over `cover`, which doubles as its poster. */
+  coverVideo?: string;
   year: number;
   coFounders: string[];
   stack: string[];
