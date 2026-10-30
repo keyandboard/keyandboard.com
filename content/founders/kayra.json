@@ -5,7 +5,7 @@
     "handle": "@kayraucklnc",
     "title": "Full-Stack Engineer",
     "location": "Remote",
-    "bio": "Full-stack engineer. I ship fast — Next.js on the front, Postgres on the back. Co-founder of keyandboard.",
+    "bio": "Full-stack engineer. I ship products end to end: web apps in Next.js and Postgres, native Mac apps in Swift, and the odd e-ink gadget. Co-founder of keyandboard.",
     "coffee": "Always open to chat about side projects and building from zero — drop me a line.",
     "avatar": "/avatars/kayra.png",
     "headline": {
@@ -18,7 +18,10 @@
     },
     "nameplate": {
       "exe": "KAYRA",
-      "tags": ["FULL STACK // LVL 05", "INDIE BUILDER"]
+      "tags": [
+        "FULL STACK // LVL 05",
+        "INDIE BUILDER"
+      ]
     },
     "site": {
       "domain": "kayrauckilinc.dev",
@@ -42,7 +45,7 @@
       },
       {
         "label": "Site",
-        "href": "https://kayrauckilinc.com"
+        "href": "https://kayrauckilinc.dev"
       }
     ],
     "cv": {
@@ -52,13 +55,93 @@
   },
   "projects": [
     {
+      "slug": "beluga",
+      "name": "Beluga",
+      "tagline": "Every project, the Claude working in each, and your friends' Claudes, Mac to Mac",
+      "description": "A native Mac app and terminal for running Claude across all your projects, one worktree per task. Your Claude can ask a friend's Claude to do things on their Mac, peer to peer and end-to-end encrypted, and answers come back as live charts, diagrams and task boards.",
+      "url": "https://github.com/kayraucklnc/beluga/releases/latest",
+      "repo": "https://github.com/kayraucklnc/beluga",
+      "featured": true,
+      "thumb": null,
+      "cover": "/covers/projects/beluga.jpg",
+      "year": 2026,
+      "coFounders": [],
+      "stack": [
+        "Swift",
+        "Rust",
+        "TypeScript",
+        "Claude Code"
+      ],
+      "status": "Live",
+      "accent": "#4c9bff",
+      "highlights": [
+        "Peer to peer, end-to-end encrypted",
+        "A worktree and a task board per project",
+        "Live charts and diagrams in chat"
+      ],
+      "cta": "DOWNLOAD"
+    },
+    {
+      "slug": "transkribe",
+      "name": "Transkribe",
+      "tagline": "Private, local transcription for macOS. Every word, kept.",
+      "description": "Record calls, import any audio or video, or dictate into any app. Speech recognition and speaker detection run entirely on the Mac, and conversations read back like a chat with summaries, to-dos and answers on top.",
+      "url": "https://github.com/kayraucklnc/transkribe/releases/latest",
+      "repo": "https://github.com/kayraucklnc/transkribe",
+      "featured": true,
+      "thumb": null,
+      "cover": "/covers/projects/transkribe.jpg",
+      "year": 2026,
+      "coFounders": [],
+      "stack": [
+        "Swift",
+        "SwiftUI",
+        "WhisperKit",
+        "MCP"
+      ],
+      "status": "Live",
+      "accent": "#f05a4f",
+      "highlights": [
+        "Audio never leaves your Mac",
+        "Knows who said what",
+        "Summaries, to-dos and Q&A"
+      ],
+      "cta": "DOWNLOAD"
+    },
+    {
+      "slug": "dither",
+      "name": "Dither",
+      "tagline": "Design an e-ink display in your browser and flash it over USB",
+      "description": "Turn a cheap e-paper panel into a calm display for your wall or desk: time, weather, meetings, trains, revenue. Design it in the browser, see a pixel-exact simulation, and flash it over USB. No server, no account.",
+      "url": "https://kayraucklnc.github.io/dither/",
+      "repo": "https://github.com/kayraucklnc/dither",
+      "featured": true,
+      "thumb": null,
+      "cover": "/covers/projects/dither.jpg",
+      "year": 2026,
+      "coFounders": [],
+      "stack": [
+        "TypeScript",
+        "WebSerial",
+        "ESP32",
+        "C++"
+      ],
+      "status": "Live",
+      "accent": "#8b6cff",
+      "highlights": [
+        "Pixel-exact simulator",
+        "Flash over USB from Chrome",
+        "Panel runs on its own"
+      ]
+    },
+    {
       "slug": "heyhoney",
       "name": "HeyHoney",
-      "tagline": "Gamified relationship companion for couples",
-      "description": "A mobile app that turns everyday couple moments into shared adventures. Players earn points, unlock milestones, and deepen their bond through playful daily challenges synced in real-time.",
+      "tagline": "A gamified relationship companion for couples — synchronized daily rituals for iOS and Android.",
+      "description": "An interactive daily ritual for couples. Partners get synchronized prompts, reflect independently, then unlock each other's answers. Built native on iOS and Android with real-time sync, streaks, progress tracking, and dynamic status systems that turn emotional check-ins into a habit.",
       "url": null,
-      "thumb": "/thumbs/heyhoney.jpg",
-      "cover": "/covers/projects/heyhoney.svg",
+      "thumb": null,
+      "cover": "/covers/projects/heyhoney.jpg",
       "year": 2024,
       "coFounders": [
         "baran"
@@ -70,7 +153,7 @@
         "Firebase"
       ],
       "status": "Live",
-      "accent": "#ff6b6b",
+      "accent": "#ffb800",
       "highlights": [
         "50k+ users",
         "iOS & Android",
@@ -84,7 +167,7 @@
       "description": "Structured document collection platform for visas, apostilles, and contracts. Clients upload and translate documents guided by AI-generated checklists. Reviewers approve via canvas-based editing tools.",
       "url": "https://flyingpapers.app",
       "thumb": "/thumbs/flyingpapers.jpg",
-      "cover": "/covers/projects/flyingpapers.svg",
+      "cover": "/covers/projects/flyingpapers.jpg",
       "year": 2025,
       "coFounders": [
         "baran"
@@ -96,7 +179,7 @@
         "pdf-lib"
       ],
       "status": "Live",
-      "accent": "#4dabf7",
+      "accent": "#fb923c",
       "highlights": [
         "500+ clients",
         "PDF canvas editor",
@@ -110,7 +193,7 @@
       "description": "Users negotiate against GPT-4, Claude, and LLaMA opponents in live sessions. A judge system scores every exchange. Built for sales teams and founders who want to sharpen their persuasion skills.",
       "url": "https://promptarena.app",
       "thumb": "/thumbs/promptarena.jpg",
-      "cover": "/covers/projects/promptarena.svg",
+      "cover": "/covers/projects/promptarena.jpg",
       "year": 2025,
       "coFounders": [
         "baran"
@@ -122,7 +205,7 @@
         "Supabase"
       ],
       "status": "Beta",
-      "accent": "#a78bfa",
+      "accent": "#c084fc",
       "highlights": [
         "10k+ users",
         "Judge scoring",
@@ -136,7 +219,7 @@
       "description": "Create a beautiful, permanent page dedicated to someone you love. Share a link — no account required to view. Built for anniversaries, birthdays, and unforgettable moments.",
       "url": "https://www.yourlovepage.com",
       "thumb": "/thumbs/yourlovepage.jpg",
-      "cover": "/covers/projects/yourlovepage.svg",
+      "cover": "/covers/projects/yourlovepage.jpg",
       "year": 2024,
       "coFounders": [
         "baran"
@@ -148,7 +231,7 @@
         "Stripe"
       ],
       "status": "Live",
-      "accent": "#f472b6",
+      "accent": "#f43f5e",
       "highlights": [
         "1M+ visitors total",
         "Stripe payments",
@@ -162,7 +245,7 @@
       "description": "Citizens report current prices for everyday goods. Aggregated data reveals real-world inflation trends across cities, giving people transparent, crowd-verified price intelligence.",
       "url": "https://enflasyonsepeti.org",
       "thumb": "/thumbs/enflasyon.jpg",
-      "cover": "/covers/projects/enflasyon-sepeti.svg",
+      "cover": "/covers/projects/enflasyon-sepeti.jpg",
       "year": 2024,
       "coFounders": [],
       "stack": [
@@ -172,7 +255,7 @@
         "Chart.js"
       ],
       "status": "Live",
-      "accent": "#fbbf24",
+      "accent": "#34d399",
       "highlights": [
         "Crowdsourced data",
         "Real-time charts",

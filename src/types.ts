@@ -4,6 +4,8 @@ export interface Project {
   tagline: string;
   description: string;
   url: string | null;
+  /** Launch button label (defaults to LAUNCH), e.g. DOWNLOAD for a Mac app. */
+  cta?: string;
   /** Public source repository, shown as a SOURCE button when present. */
   repo?: string;
   /** Marks a flagship open-source build (OSS badge + featured viewport label). */

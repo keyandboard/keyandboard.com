@@ -29,6 +29,8 @@ export function ProjectViewport({ project, index, total }: Props) {
   const accent = project.accent;
   const statusColor = STATUS_COLOR[project.status] ?? accent;
   const cover = pickCover(project.slug, project.cover);
+  // Screenshot covers render crisp and fill the screen; SVG covers are pixel art.
+  const pixelArt = cover.endsWith(".svg");
   const host = project.url
     ? new URL(project.url).host.replace(/^www\./, "")
     : null;
@@ -57,15 +59,20 @@ export function ProjectViewport({ project, index, total }: Props) {
       </div>
 
       {/* ── Screen ── */}
-      <div className="relative aspect-video max-h-[26rem] shrink-0 overflow-hidden border-b border-white/10">
+      <div className="group/screen relative aspect-[16/10] shrink-0 overflow-hidden border-b border-white/10">
         <div key={project.slug} className="crt-boot absolute inset-0">
           <Image
             src={cover}
-            alt={`${project.name} — pixel art`}
+            alt={pixelArt ? `${project.name} — pixel art` : `${project.name} screenshot`}
             fill
-            unoptimized={cover.endsWith(".svg")}
-            className="pixelated object-contain object-center"
-            sizes="(max-width: 768px) 100vw, 60vw"
+            unoptimized={pixelArt}
+            className={
+              pixelArt
+                ? "pixelated object-contain object-center"
+                : "object-cover object-top transition-transform duration-700 ease-out group-hover/screen:scale-[1.03]"
+            }
+            sizes="(max-width: 640px) 100vw, 60vw"
+            priority={index === 0}
           />
         </div>
 
@@ -77,9 +84,9 @@ export function ProjectViewport({ project, index, total }: Props) {
           }}
           aria-hidden
         />
-        {/* CRT scanlines */}
+        {/* CRT scanlines (faint over screenshots so they stay readable) */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-70"
+          className={`pointer-events-none absolute inset-0 ${pixelArt ? "opacity-70" : "opacity-25"}`}
           style={{
             background:
               "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.10) 2px, rgba(0,0,0,0.10) 4px)",
@@ -89,7 +96,11 @@ export function ProjectViewport({ project, index, total }: Props) {
         {/* vignette + bottom fade */}
         <div
           className="pointer-events-none absolute inset-0"
-          style={{ boxShadow: "inset 0 0 60px rgba(0,0,0,0.55)" }}
+          style={{
+            boxShadow: pixelArt
+              ? "inset 0 0 60px rgba(0,0,0,0.55)"
+              : "inset 0 0 40px rgba(0,0,0,0.35)",
+          }}
           aria-hidden
         />
         <div
@@ -169,13 +180,13 @@ export function ProjectViewport({ project, index, total }: Props) {
               }}
             >
               <span className="pixel-label text-[8px]" style={{ color: accent }}>
-                LAUNCH
+                {project.cta ?? "LAUNCH"}
               </span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 style={{ color: accent }}
               />
-              {host && (
+              {host && !project.cta && (
                 <span className="ml-1 hidden font-mono text-[9px] uppercase tracking-widest text-white/30 sm:inline">
                   {host}
                 </span>

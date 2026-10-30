@@ -22,6 +22,12 @@ function SectionDivider({ label, accent }: { label: string; accent: string }) {
   );
 }
 
+/** "https://www.github.com/kayraucklnc/" → "github.com/kayraucklnc" */
+function displayUrl(href: string) {
+  const url = new URL(href);
+  return (url.host + url.pathname).replace(/^www\./, "").replace(/\/$/, "");
+}
+
 function ContactBlock({ links }: { links: FounderLink[] }) {
   return (
     <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -39,7 +45,7 @@ function ContactBlock({ links }: { links: FounderLink[] }) {
           <span className="flex items-center gap-2 text-sm text-white/70 transition group-hover:text-white">
             {link.href.startsWith("mailto:")
               ? link.href.slice("mailto:".length).split("?")[0]
-              : new URL(link.href).host.replace(/^www\./, "")}
+              : displayUrl(link.href)}
             <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </span>
         </Link>
