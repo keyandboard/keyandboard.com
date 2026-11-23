@@ -25,7 +25,7 @@ export function KeyandboardView({ profiles, projects }: KeyandboardViewProps) {
           <span className="blink ml-1 text-[var(--neon)]">_</span>
         </span>
         <a
-          href="mailto:a.baranorhan@gmail.com"
+          href="mailto:contact@keyandboard.com"
           className="pixel-label text-[8px] text-white/40 border border-white/10 px-4 py-2 transition hover:border-white/30 hover:text-white/70"
         >
           CONTACT
